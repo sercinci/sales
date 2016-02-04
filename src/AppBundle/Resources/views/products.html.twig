@@ -1,0 +1,13 @@
+{% extends "AppBundle::layout.html.twig" %}
+
+{% block content %}
+	{{ form_start(form) }}
+	{% for product in products %}
+		{% set key = product.getId() %}
+		<ul>
+			<li>{{ form_widget(form.products[key]) }} {{ product.getName() }} {{ product.getPrice() | number_format(2) }}</li>
+		</ul>
+	{% endfor %}
+	{{ form_end(form) }}
+	
+{% endblock %}

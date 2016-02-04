@@ -1,0 +1,12 @@
+{% extends "AppBundle::layout.html.twig" %}
+
+{% block content %}
+	{% for product in cart %}
+	<ul>
+		<li>{{ product.getName() }}: {{ product.getFullPrice() | number_format(2)}}</li>
+	</ul>
+	
+	{% endfor %}
+	<h5>Sales Taxes: {{ salesTaxes | number_format(2) }}</h5>
+	<h5>Total: {{ total | number_format(2) }}</h5>
+{% endblock %}
