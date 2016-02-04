@@ -1,13 +1,28 @@
 {% extends "AppBundle::layout.html.twig" %}
 
+{% block title %} 
+Products
+{% endblock %}
+
 {% block content %}
+	{{ parent() }}
 	{{ form_start(form) }}
-	{% for product in products %}
+	<table class="table table-condensed">
+		<tr>
+			<th>Name</th>
+			<th class="text-right">Price [€]</th>
+			<th class="text-right">Add to cart</th>
+		</tr>
+		{% for product in products %}
 		{% set key = product.getId() %}
-		<ul>
-			<li>{{ form_widget(form.products[key]) }} {{ product.getName() }} {{ product.getPrice() | number_format(2) }}</li>
-		</ul>
-	{% endfor %}
+		<tr>
+			<td>{{ product.getName() }}</td>
+			<td class="text-right">{{ product.getPrice() | number_format(2) }}</td>
+			<td class="text-right">{{ form_widget(form.products[key]) }}</td>
+		</tr>
+		{% endfor %}
+	</table>
+	{{ form_widget(form.buy, {'attr': {'class': 'btn btn-primary pull-right'}}) }}
 	{{ form_end(form) }}
 	
 {% endblock %}

@@ -31,7 +31,7 @@ class DefaultController extends Controller
             'expanded' => true,
           ])
           ->add('buy', 'submit', [
-            'label' => 'Buy',
+            'label' => 'Checkout',
           ])
           ->getForm();
 

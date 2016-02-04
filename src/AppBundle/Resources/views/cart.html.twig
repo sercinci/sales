@@ -1,12 +1,22 @@
 {% extends "AppBundle::layout.html.twig" %}
 
+{% block title %} 
+Cart
+{% endblock %}
+
 {% block content %}
-	{% for product in cart %}
-	<ul>
-		<li>{{ product.getName() }}: {{ product.getFullPrice() | number_format(2)}}</li>
-	</ul>
-	
-	{% endfor %}
-	<h5>Sales Taxes: {{ salesTaxes | number_format(2) }}</h5>
-	<h5>Total: {{ total | number_format(2) }}</h5>
+	{{ parent() }}
+	<blockquote>
+	<dl>
+		{% for product in cart %}
+		<dt>{{ product.getName() }}:</dt>
+		<dd>{{ product.getFullPrice() | number_format(2)}} €</dd>
+		{% endfor %}
+		<hr>
+		<dt>Sales Taxes:</dt>
+		<dd>{{ salesTaxes | number_format(2) }} €</dd>
+		<dt>Total:</dt>
+		<dd>{{ total | number_format(2) }} €</dd>
+	</dl>
+	</blockquote>
 {% endblock %}
