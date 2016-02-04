@@ -6,7 +6,7 @@ A Symfony project created on February 4, 2016, 8:58 am.
 Instructions
 ===
 
-1. Clone this repo in you directory `git clone https://github.com/sercinci/sales.git`
+1. Clone this repo in your directory `git clone https://github.com/sercinci/sales.git`
 2. Enter in sales directory `cd sales`
 3. Launch command `composer install` (install [Composer](https://getcomposer.org/doc/00-intro.md))
 4. Provide your database parameters
